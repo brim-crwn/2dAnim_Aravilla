@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using RigidBody2D;
+
 
 public class playermovement : MonoBehaviour
 {
     public float moveSpeed;
     private Animator Animator;
     private Vector2 movement;
-    private RigidBody2D rb;
+    private Rigidbody2D rb;
 
     void Awake()
     {
-        rb = Getcomponenet<RigidBody2D>();
-        anime = Getcomponenet<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        Animator = GetComponent<Animator>();
 
     }
 
@@ -26,8 +26,8 @@ public class playermovement : MonoBehaviour
     {
         if(movement != Vector2.zero)
         {
-            anim.SetFloat("LoopX",movement.x);
-            anim.SetFloat("LoopY",movement.y);
+            Animator.SetFloat("LoopX",movement.x);
+            Animator.SetFloat("LoopY",movement.y);
         }
     }
 }
